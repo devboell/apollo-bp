@@ -23,8 +23,8 @@ exports[`Gallery component with data snapshot 1`] = `
         "landscape",
       ]
     }
-    onDeselectGenre={[Function]}
-    onSelectGenre={[Function]}
+    onDeselectGenre={[MockFunction]}
+    onSelectGenre={[MockFunction]}
     selectedGenres={
       Array [
         "city",
@@ -32,7 +32,7 @@ exports[`Gallery component with data snapshot 1`] = `
       ]
     }
   />
-  <Component
+  <GalleryView
     artistPath="heroshige"
     paintings={
       Array [
