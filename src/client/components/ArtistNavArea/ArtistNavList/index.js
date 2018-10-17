@@ -1,22 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ArtistNavItem from './ArtistNavItem'
-import Wrapper from './Wrapper'
+import ArtistNavItem from '../ArtistNavItem'
 import Ul from './Ul'
 
 const ArtistNavList = ({ artists }) => (
-  <Wrapper>
-    <Ul>
-      {artists.map(artist => (
-        <ArtistNavItem
-          key={`artist-${artist.path}`}
-          name={artist.name}
-          path={artist.path}
-        />
-      ))}
-    </Ul>
-  </Wrapper>
+  <Ul>
+    {artists.map(artist => (
+      <ArtistNavItem
+        key={`artist-${artist.path}`}
+        name={artist.name}
+        path={artist.path}
+      />
+    ))}
+  </Ul>
 )
 
 ArtistNavList.propTypes = {

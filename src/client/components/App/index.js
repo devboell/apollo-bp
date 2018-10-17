@@ -3,7 +3,7 @@ import React from 'react'
 import HomeIconArea from 'components/HomeIconArea'
 import HeaderArea from 'components/HeaderArea'
 import ArtistNavArea from 'components/ArtistNavArea'
-import Content from 'components/Content'
+import ContentArea from 'components/ContentArea'
 
 import LayoutGrid from './LayoutGrid'
 
@@ -12,7 +12,7 @@ const App = () => (
     <HomeIconArea />
     <HeaderArea />
     <ArtistNavArea />
-    <Content />
+    <ContentArea />
   </LayoutGrid>
 )
 

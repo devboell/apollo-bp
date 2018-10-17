@@ -1,15 +1,17 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Home from 'components/Home'
-import Gallery from 'containers/Gallery'
-import PaintingViewer from 'components/PaintingViewer'
-import Article from './Article'
 
-const Content = () =>
-  <Article>
+import Gallery from 'containers/Gallery'
+
+import Home from './Home'
+import PaintingViewer from './PaintingViewer'
+import GridItem from './GridItem'
+
+const ContentArea = () =>
+  <GridItem>
     <Route exact path="/" component={Home} />
     <Route exact path="/:artistPath" component={Gallery} />
     <Route path="/:artistPath/:paintingName" component={PaintingViewer} />
-  </Article>
+  </GridItem>
 
-export default Content
+export default ContentArea

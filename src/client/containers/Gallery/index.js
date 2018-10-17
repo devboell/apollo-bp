@@ -6,8 +6,8 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 import { uniq, compose, map as _map } from 'lodash/fp'
 
-import GenreChooser from 'components/GenreChooser'
-import GalleryView from 'components/GalleryView'
+import GenreChooser from 'components/ContentArea/GenreChooser'
+import GalleryView from 'components/ContentArea/GalleryView'
 
 import { setSelectedGenres, selectGenre, deselectGenre } from './actions'
 import Wrapper from './Wrapper'
@@ -90,14 +90,16 @@ export const ARTIST_BY_PATH_QUERY = gql`
   }
 `
 
-export const withArtist = graphql(ARTIST_BY_PATH_QUERY,
+export const withArtist = graphql(
+  ARTIST_BY_PATH_QUERY,
   {
     options: ({ match }) => ({ variables: { path: match.params.artistPath } }),
     props: ({ data: { artistByPath, loading } }) => ({
       artist: artistByPath,
       loading,
     }),
-  })
+  },
+)
 
 
 export const mapStateToProps = state => ({
