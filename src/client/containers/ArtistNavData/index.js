@@ -2,40 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import ArtistNavItem from 'components/ArtistNavItem'
 
-import Wrapper from './Wrapper'
-import Ul from './Ul'
 
-export const ArtistsNav = ({ artists, loading }) => (
+export const ArtistNavData = ({ artists, loading, children }) => (
   loading
     ? <div>loading...</div>
-    :
-    <Wrapper>
-      <Ul>
-        {artists.map(artist =>
-          <ArtistNavItem
-            key={`artist-${artist.path}`}
-            name={artist.name}
-            path={artist.path}
-          />,
-        )}
-      </Ul>
-    </Wrapper>
+    : React.Children.only(React.cloneElement(children, { artists }))
+
 )
 
 // workaround for istanbul quirk, related to: https://github.com/facebook/jest/issues/1824
-ArtistsNav.displayName = 'ArtistsNav'
+ArtistNavData.displayName = 'ArtistNavData'
 
-ArtistsNav.propTypes = {
+ArtistNavData.propTypes = {
   loading: PropTypes.bool.isRequired,
   artists: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     path: PropTypes.string,
-  })).isRequired,
+  })),
+  children: PropTypes.node.isRequired,
 }
 
-ArtistsNav.defaultProps = {
+ArtistNavData.defaultProps = {
   artists: [],
 }
 
@@ -48,13 +36,15 @@ export const ARTISTS_QUERY = gql`
   }
 `
 
-export const withArtists = graphql(ARTISTS_QUERY,
+export const withArtists = graphql(
+  ARTISTS_QUERY,
   {
     props: ({ data: { artists, loading } }) => ({
       artists,
       loading,
     }),
-  })
+  },
+)
 
 
-export default withArtists(ArtistsNav)
+export default withArtists(ArtistNavData)

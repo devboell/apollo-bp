@@ -1,19 +1,19 @@
 import React from 'react'
 
-import ArtistsNav from 'containers/ArtistsNav'
-import Header from 'components/Header'
+import HomeIconArea from 'components/HomeIconArea'
+import HeaderArea from 'components/HeaderArea'
+import ArtistNavArea from 'components/ArtistNavArea'
 import Content from 'components/Content'
 
-import Main from './Main'
+import LayoutGrid from './LayoutGrid'
 
 const App = () => (
-  <div>
-    <Header />
-    <Main>
-      <ArtistsNav />
-      <Content />
-    </Main>
-  </div>
+  <LayoutGrid>
+    <HomeIconArea />
+    <HeaderArea />
+    <ArtistNavArea />
+    <Content />
+  </LayoutGrid>
 )
 
 export default App
