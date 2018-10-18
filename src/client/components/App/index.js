@@ -10,10 +10,13 @@ import LayoutGrid from './LayoutGrid'
 const App = () => (
   <LayoutGrid>
     <HomeIconArea />
+
+  </LayoutGrid>
+)
+/*
     <HeaderArea />
     <ArtistNavArea />
     <ContentArea />
-  </LayoutGrid>
-)
+*/
 
 export default App

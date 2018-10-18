@@ -1,5 +1,5 @@
-import 'babel-polyfill'
-import 'raf/polyfill'
+// import 'babel-polyfill'
+// import 'raf/polyfill'
 
 import { shallow, render, mount, configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16' // eslint-disable-line import/no-extraneous-dependencies
