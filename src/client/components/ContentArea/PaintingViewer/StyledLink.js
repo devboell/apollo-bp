@@ -12,7 +12,6 @@ const Styledlink = styled(Link)`
 
   > p {
     color: black;
-    font-size: 16px;
     font-weight: bold;
     margin-left: 5px;
   }
