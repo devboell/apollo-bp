@@ -5,7 +5,7 @@ import App from '../index'
 import { mocks } from '../mocks'
 
 it('should ', async () => {
-  const renderOptions = {
+  const providerConfig = {
     route: '/',
     mocks,
   }
@@ -13,7 +13,7 @@ it('should ', async () => {
   const {
     getByAltText,
     queryByText,
-  } = renderWithProviders(<App />, renderOptions)
+  } = renderWithProviders(<App />, providerConfig)
   await wait(() =>
     expect(queryByText(/loading\.\.\./i)).not.toBeInTheDocument())
 
