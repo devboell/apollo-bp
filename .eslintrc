@@ -15,13 +15,13 @@
   "globals": {
     "shallow": false,
     "mount": false,
-    "render": false,
+    "render": false
   },
   "plugins": ["react", "import"],
   "rules": {
     "no-console": 1,
     "semi": ["error", "never"],
-    "import/no-unresolved": 2,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}] , "import/no-unresolved": 2,
     "import/no-named-as-default": 0,
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
