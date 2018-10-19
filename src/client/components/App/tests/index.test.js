@@ -1,40 +1,21 @@
 import React from 'react'
 import 'react-testing-library/cleanup-after-each'
-import { render } from 'react-testing-library'
-import {Link, Route, Router, Switch} from 'react-router-dom'
-import {createMemoryHistory} from 'history'
-
-function renderWithRouter(
-  ui,
-  {route = '/', history = createMemoryHistory({initialEntries: [route]})} = {},
-) {
-  return {
-    ...render(<Router history={history}>{ui}</Router>),
-    // adding `history` to the returned utilities to allow us
-    // to reference it in our tests (just try to avoid using
-    // this to test implementation details).
-    history,
-  }
-}
-
+import { renderWithProviders, wait } from 'test-utils/renderWithProviders'
 import App from '../index'
-it('should ', () => {
+import { mocks } from '../mocks'
+
+it('should ', async () => {
+  const renderOptions = {
+    route: '/',
+    mocks,
+  }
+
   const {
-    getByText,
-    getByTestId,
-    container,
-    asFragment,
     getByAltText,
-    debug,
-  } = renderWithRouter(
-    <App />,
-  )
-  
-  // console.log('getByAltText', getByAltText('Home'))
-  // console.log('getByTestId', getByTestId)
-  // console.log('container', container)
-  // console.log('asFragment', asFragment)
-  // debug()
+    queryByText,
+  } = renderWithProviders(<App />, renderOptions)
+  await wait(() =>
+    expect(queryByText(/loading\.\.\./i)).not.toBeInTheDocument())
 
   expect(getByAltText('Home')).toBeInTheDocument()
 })
