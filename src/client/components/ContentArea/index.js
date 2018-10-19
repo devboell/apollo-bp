@@ -1,9 +1,9 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
-import Gallery from 'containers/Gallery'
 
 import Home from './Home'
+import Gallery from './Gallery'
 import PaintingViewer from './PaintingViewer'
 import GridItem from './GridItem'
 

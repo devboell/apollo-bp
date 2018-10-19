@@ -6,16 +6,18 @@ import { mocks } from '../mocks'
 
 it('should ', async () => {
   const providerConfig = {
-    route: '/',
+    route: '/heroshige',
     mocks,
   }
 
   const {
     getByAltText,
     queryByText,
+    debug,
   } = renderWithProviders(<App />, providerConfig)
   await wait(() =>
     expect(queryByText(/loading\.\.\./i)).not.toBeInTheDocument())
 
+  debug()
   expect(getByAltText('Home')).toBeInTheDocument()
 })
