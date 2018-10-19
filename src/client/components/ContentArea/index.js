@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 
 import Home from './Home'
@@ -9,9 +9,11 @@ import GridItem from './GridItem'
 
 const ContentArea = () =>
   <GridItem>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/:artistPath" component={Gallery} />
-    <Route path="/:artistPath/:paintingName" component={PaintingViewer} />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/:artistPath" component={Gallery} />
+      <Route path="/:artistPath/:paintingName" component={PaintingViewer} />
+    </Switch>
   </GridItem>
 
 export default ContentArea

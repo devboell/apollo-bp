@@ -13,22 +13,22 @@ const artistGenres =
 
 export class GalleryView extends React.Component {
   componentDidMount() {
-    const { artist, onSetSelectedGenres } = this.props
-    if (artist) {
-      onSetSelectedGenres(artistGenres(artist.paintings))
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    const { artist, onSetSelectedGenres } = this.props
-    if (prevProps.artist !== artist) {
-      onSetSelectedGenres(artistGenres(artist.paintings))
+    const {
+      artist,
+      selectedGenres,
+      onSetSelectedGenres,
+    } = this.props
+    if (selectedGenres.length === 0) {
+      onSetSelectedGenres(artist.path, artistGenres(artist.paintings))
     }
   }
 
   render() {
     const {
-      artist,
+      artist: {
+        path,
+        paintings,
+      },
       selectedGenres,
       onSelectGenre,
       onDeselectGenre,
@@ -39,16 +39,14 @@ export class GalleryView extends React.Component {
     return (
       <div>
         <GenreChooser
-          genres={artistGenres(artist.paintings)}
-          {...{
-            selectedGenres,
-            onSelectGenre,
-            onDeselectGenre,
-          }}
+          genres={artistGenres(paintings)}
+          selectedGenres={selectedGenres}
+          onSelectGenre={onSelectGenre(path)}
+          onDeselectGenre={onDeselectGenre(path)}
         />
         <GalleryThumbs
-          artistPath={artist.path}
-          paintings={artist.paintings.filter(genreFilter)}
+          artistPath={path}
+          paintings={paintings.filter(genreFilter)}
         />
       </div>
     )
@@ -60,7 +58,7 @@ GalleryView.propTypes = {
     path: PropTypes.string,
     paintings: PropTypes.array,
   }),
-  selectedGenres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedGenres: PropTypes.arrayOf(PropTypes.string),
   onSetSelectedGenres: PropTypes.func.isRequired,
   onSelectGenre: PropTypes.func.isRequired,
   onDeselectGenre: PropTypes.func.isRequired,
@@ -68,6 +66,7 @@ GalleryView.propTypes = {
 
 GalleryView.defaultProps = {
   artist: {},
+  selectedGenres: [],
 }
 
 export default GalleryView
