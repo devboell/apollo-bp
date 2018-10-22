@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-const GridItem = styled.nav`
+const GridItem = styled.nav.attrs({
+  'data-testid': 'artistNav',
+})`
   grid-area: artistNav;
 `
 

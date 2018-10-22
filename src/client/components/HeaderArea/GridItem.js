@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-const GridItem = styled.header`
+const GridItem = styled.header.attrs({
+  'data-testid': 'header',
+})`
   grid-area: header;
   display: flex;
   vertical-align: center;

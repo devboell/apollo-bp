@@ -8,8 +8,8 @@ export default [
     path: 'hokusai',
   },
   {
-    name: 'Utamaro',
-    path: 'utamaro',
+    name: 'Kuniyoshi',
+    path: 'Kuniyoshi',
   },
   {
     name: 'Kunisada',

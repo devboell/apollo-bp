@@ -4,6 +4,7 @@ import { compose, uniq, pluck } from 'ramda'
 
 import GenreChooser from '../GenreChooser'
 import GalleryThumbs from '../GalleryThumbs'
+import Wrapper from './Wrapper'
 
 const artistGenres =
   compose(
@@ -37,7 +38,7 @@ export class GalleryView extends React.Component {
     const genreFilter = painting => selectedGenres.includes(painting.genre)
 
     return (
-      <div>
+      <Wrapper>
         <GenreChooser
           genres={artistGenres(paintings)}
           selectedGenres={selectedGenres}
@@ -48,7 +49,7 @@ export class GalleryView extends React.Component {
           artistPath={path}
           paintings={paintings.filter(genreFilter)}
         />
-      </div>
+      </Wrapper>
     )
   }
 }
