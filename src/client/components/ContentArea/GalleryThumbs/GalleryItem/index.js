@@ -11,6 +11,7 @@ const GalleryItem = ({ artistPath, painting }) =>
       <ThumbLink
         artistPath={artistPath}
         paintingName={painting.name}
+        paintingTitle={painting.title}
       />
     </ThumbContainer>
     <Title>
