@@ -15,9 +15,10 @@ const composeEnhancers =
 
 const initStore = () => {
   const store = createStore(
-    rootReducer(),
+    rootReducer,
     {},
-    composeEnhancers())
+    composeEnhancers(),
+  )
 
   if (process.env.NODE_ENV !== 'production') {
     if (module.hot) {

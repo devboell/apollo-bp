@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import gallery from 'containers/GenreContainer/reducer'
 
-export default () => combineReducers({
+export default combineReducers({
   gallery,
 })
