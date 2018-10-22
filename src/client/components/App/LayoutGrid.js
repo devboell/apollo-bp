@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const LayoutGrid = styled.main`
+const LayoutGrid = styled.div`
   display: grid;
   grid-gap: 1em;
   grid-template-columns: 1fr 10fr;
