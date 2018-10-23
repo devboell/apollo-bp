@@ -1,5 +1,5 @@
 {
-  "setupFiles": ["./config/setUpEnzyme.js"],
+  "setupFiles": [],
   "setupTestFrameworkScriptFile": "<rootDir>/config/setupTestFrameworkScriptFile.js",
   "snapshotSerializers": [
     "<rootDir>/node_modules/enzyme-to-json/serializer"
