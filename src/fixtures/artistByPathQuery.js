@@ -2,7 +2,7 @@ export default {
   path: 'heroshige',
   paintings: [
     {
-      title: 'Cotton goods shops at odemmacho',
+      title: 'Cotton goods shops at Odemmacho',
       name: 'cotton_goods_shops_at_odemmacho.jpg',
       genre: 'city',
     },
