@@ -1,4 +1,4 @@
-import find from 'lodash/fp/find'
+import { find, propEq } from 'ramda'
 import artistData from './artists.json'
 
 const resolvers = {
@@ -6,7 +6,7 @@ const resolvers = {
   Query: {
     artists: () => artistData,
     artistByPath: (_, args) =>
-      find({ path: args.path })(artistData)
+      find(propEq('path', args.path), artistData)
     ,
   },
 }
