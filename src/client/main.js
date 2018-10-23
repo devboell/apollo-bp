@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import { Provider } from 'react-redux'
 import { ApolloProvider } from 'react-apollo'
-import { AppContainer } from 'react-hot-loader' // eslint-disable-line import/no-extraneous-dependencies
+import { AppContainer } from 'react-hot-loader'
 import { BrowserRouter } from 'react-router-dom'
 import App from 'components/App'
 import './globalStyles'
