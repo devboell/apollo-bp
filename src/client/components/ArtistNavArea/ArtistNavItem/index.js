@@ -4,11 +4,13 @@ import StyledNavLink from './StyledNavLink'
 
 const ArtistNavItem = ({ name, path }) =>
   <li>
-    <StyledNavLink
-      to={`/${path}`}
-    >
-      <h2>{name}</h2>
-    </StyledNavLink>
+    <h2>
+      <StyledNavLink
+        to={`/${path}`}
+      >
+        {name}
+      </StyledNavLink>
+    </h2>
   </li>
 
 
