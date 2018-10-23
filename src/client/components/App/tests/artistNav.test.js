@@ -7,13 +7,13 @@ import {
   fireEvent,
   within,
 } from 'test-utils/renderWithProviders'
+
 import rootReducer from 'client/reducers'
 import App from '../index'
 import { mocks } from '../mocks'
 
 let getByTestId
 let queryByText
-
 
 beforeEach(async () => {
   const providerConfig = {
